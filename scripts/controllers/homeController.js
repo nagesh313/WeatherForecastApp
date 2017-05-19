@@ -1,9 +1,11 @@
 'use strict';
 angular.module('weatherForecastApp')
-  .controller('HomeController', ['WeatherService', '$scope', function (WeatherService, $scope) {
+  .controller('HomeController', ['WeatherService', function (WeatherService) {
+    //  this.forecastDetails={};
+    var vm = this;
+    WeatherService.getForecastForDayByCurrentLocation().then(function (data) {
+      vm.forecastDetails = data;
+    }, function () {
 
-    $scope.list = WeatherService.getForecastForDayByCurrentLocation().then(function (data) {
-      $scope.list = data;
-    }, function () { });
-
+    });
   }]);

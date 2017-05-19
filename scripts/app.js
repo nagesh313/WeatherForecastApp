@@ -10,7 +10,7 @@ angular
       .when('/', {
         templateUrl: 'views/home.html',
         controller: 'HomeController',
-        controllerAs: 'main'
+        controllerAs: 'home'
       })
       .otherwise({
         redirectTo: '/'
