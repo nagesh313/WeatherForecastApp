@@ -4,7 +4,7 @@
   <p>City Coordinates : {{home.forecastDetails.city.coord.lat + ' Latitude ' + home.forecastDetails.city.coord.lon + ' Longitude
     '}}</p>
   <div class='row'>
-    <div ng-repeat="obj in home.forecastDetails.list" class="col-xs-6 col-md-4 col-lg-2 detail-div">
+    <div ng-repeat="obj in home.forecastDetails.list" class="col-xs-{{home.AppParameters.colxscount}} col-md-{{home.AppParameters.colmdcount}} col-lg-{{home.AppParameters.collgcount}} detail-div">
       <p>Date : {{obj.dt_txt}}</p>
       <p>Temperature : {{obj.main.temp}}</p>
       <p>Max Temperature : {{obj.main.temp_max}}</p>

@@ -1,7 +1,9 @@
 angular.module('weatherForecastApp')
-  .controller('ForecastByLocationController', ['WeatherService', function (WeatherService) {
+  .controller('ForecastByLocationController', ['WeatherService','AppParameters', function (WeatherService,AppParameters) {
     var vm = this;  
+    vm.AppParameters=AppParameters;
     vm.getForecastForLocation = function () {
+      console.log(AppParameters);
        // vm.location='Pune';
         vm.error=false;
       vm.errorData = {};

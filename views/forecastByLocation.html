@@ -1,13 +1,16 @@
 <div class="container-fluid">
-    <input type='text' ng-model="forecast.location">
-    <input type="button" ng-click="forecast.getForecastForLocation()" value="Click To Search" ng-disabled="!forecast.location">
+    <input type='text' ng-model="forecast.location" placeholder="Enter City">
+             <button type="button"  ng-disabled="!forecast.location"
+             ng-click="forecast.getForecastForLocation()"
+              class="btn btn-md btn-primary" place>Click To Search</button>
     <div ng-if="!forecast.error&& forecast.forecastDetails">
         <p>City Name : {{forecast.forecastDetails.city.name}}</p>
         <p>City Coordinates : {{forecast.forecastDetails.city.coord.lat + ' Latitude ' + forecast.forecastDetails.city.coord.lon
             + ' Longitude '}}
         </p>
         <div class='row'>
-            <div ng-repeat="obj in forecast.forecastDetails.list" class="col-xs-6 col-md-4 col-lg-2 detail-div">
+            <div ng-repeat="obj in forecast.forecastDetails.list" 
+            class="col-xs-{{forecast.AppParameters.colxscount}} col-md-{{forecast.AppParameters.colmdcount}} col-lg-{{forecast.AppParameters.collgcount}} detail-div">
                 <p>Date : {{obj.dt_txt}}</p>
                 <p>Temperature : {{obj.main.temp}}</p>
                 <p>Max Temperature : {{obj.main.temp_max}}</p>
