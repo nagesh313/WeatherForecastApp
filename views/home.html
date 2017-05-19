@@ -1,16 +1,29 @@
 <div class="container-fluid">
-    <p>This page will bring the forecast details based on current geolocation of the user.You will have to enable location fetching for the browser when asked for</p>
-  <p>City Name : {{home.forecastDetails.city.name}}</p>
-  <p>City Coordinates : {{home.forecastDetails.city.coord.lat + ' Latitude ' + home.forecastDetails.city.coord.lon + ' Longitude
-    '}}</p>
-  <div class='row'>
-    <div ng-repeat="obj in home.forecastDetails.list" class="col-xs-{{home.AppParameters.colxscount}} col-md-{{home.AppParameters.colmdcount}} col-lg-{{home.AppParameters.collgcount}} detail-div">
-      <p>Date : {{obj.dt_txt}}</p>
-      <p>Temperature : {{obj.main.temp}}</p>
-      <p>Max Temperature : {{obj.main.temp_max}}</p>
-      <p>Min Temperature : {{obj.main.temp_min}}</p>
-      <p>pressure : {{obj.main.pressure}}</p>
-      <p>{{obj.wind.speed}} Wind Speed </p>
+  <p>This page will bring the forecast details based on current geolocation of the user.You will have to enable location fetching
+    for the browser when asked for</p>
+  <form name="coordinatesForm">
+    <input type='number' ng-model="home.latitude" required ng-min="-180" ng-max='180' placeholder="Latitude">
+    <input type='number' ng-model="home.longitude" required ng-min="-180" ng-max='180' placeholder="Longitude">
+    <button type="button" ng-disabled='!coordinatesForm.$valid' ng-click="home.getForecastByLatitudeLogitude()" class="btn btn-md btn-primary">Click To fetch Forecast</button>
+  </form>
+  <div ng-if="!home.error && home.forecastDetails">
+    <p>City Name : {{home.forecastDetails.city.name}}</p>
+    <p>City Coordinates : {{home.forecastDetails.city.coord.lat + ' Latitude ' + home.forecastDetails.city.coord.lon + ' Longitude
+      '}}
+    </p>
+    <div class='row'>
+      <div ng-repeat="obj in home.forecastDetails.list" class="col-xs-{{home.AppParameters.colxscount}} col-md-{{home.AppParameters.colmdcount}} col-lg-{{home.AppParameters.collgcount}} detail-div">
+        <p>Date : {{obj.dt_txt}}</p>
+        <p>Temperature : {{obj.main.temp}}</p>
+        <p>Max Temperature : {{obj.main.temp_max}}</p>
+        <p>Min Temperature : {{obj.main.temp_min}}</p>
+        <p>pressure : {{obj.main.pressure}}</p>
+        <p>{{obj.wind.speed}} Wind Speed </p>
+      </div>
     </div>
   </div>
+  <div ng-if="home.error">
+    {{home.errorMessage}}
+  </div>
+</div>
 </div>

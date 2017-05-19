@@ -1,7 +1,7 @@
 <form name="ParameterForm">
     <div>COL-XS count: <input type='number' ng-model="param.values.colxscount" required ng-min="1" ng-max='12'><br> COL-MD count:
-        <input type='number' ng-model="param.values.colmdcount" required ng-min="1" ng-max='12'><br> COL-LG count:
-        <input
+        <input type='number' ng-model="param.values.colmdcount" required ng-min="1" ng-max='12'><br>
+         COL-LG count:<input
             type='number' ng-model="param.values.collgcount" required ng-min="1" ng-max='12'><br> Call count for api calls: <input type='number' ng-model="param.values.cnt" required ng-min="1" ng-max='16'>
             <br><br>
             <button type="button" ng-disabled='!ParameterForm.$valid' ng-click="param.saveParameters()" class="btn btn-md btn-primary">Click To Save Values</button>
