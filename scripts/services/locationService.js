@@ -1,4 +1,4 @@
-angular.module('weatherApp').service('LocationService', ['$q', function ($q) {
+angular.module('weatherForecastApp').service('LocationService', ['$q', function ($q) {
     this.getCurrentLocation = function () {
         var deferred;
         if (navigator.geolocation) {
