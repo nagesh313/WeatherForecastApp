@@ -2,7 +2,7 @@
     <input type='text' ng-model="forecast.location" placeholder="Enter City">
              <button type="button"  ng-disabled="!forecast.location"
              ng-click="forecast.getForecastForLocation()"
-              class="btn btn-md btn-primary" place>Click To Search</button>
+              class="btn btn-md btn-primary" place id='fetchForecast'>Click To Search</button>
     <div ng-if="!forecast.error&& forecast.forecastDetails">
         <p>City Name : {{forecast.forecastDetails.city.name}}</p>
         <p>City Coordinates : {{forecast.forecastDetails.city.coord.lat + ' Latitude ' + forecast.forecastDetails.city.coord.lon

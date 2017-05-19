@@ -4,7 +4,7 @@
   <form name="coordinatesForm">
     <input type='number' ng-model="home.latitude" required ng-min="-180" ng-max='180' placeholder="Latitude">
     <input type='number' ng-model="home.longitude" required ng-min="-180" ng-max='180' placeholder="Longitude">
-    <button type="button" ng-disabled='!coordinatesForm.$valid' ng-click="home.getForecastByLatitudeLogitude()" class="btn btn-md btn-primary">Click To fetch Forecast</button>
+    <button type="button" ng-disabled='!coordinatesForm.$valid' ng-click="home.getForecastByLatitudeLogitude()" class="btn btn-md btn-primary" id='fetchForecast'>Click To Fetch Forecast</button>
   </form>
   <div ng-if="!home.error && home.forecastDetails">
     <p>City Name : {{home.forecastDetails.city.name}}</p>
