@@ -1,6 +1,15 @@
-<div ng-repeat="obj in list.list">
-    {{obj.dt|date}}<br>
-  ______________________________________-
-  {{obj}}<br>
-  ______________________________________-
+<div class="container-fluid">
+  <p>City Name : {{home.forecastDetails.city.name}}</p>
+  <p>City Coordinates : {{home.forecastDetails.city.coord.lat + ' Latitude ' + home.forecastDetails.city.coord.lon + ' Longitude
+    '}}</p>
+  <div class='row'>
+    <div ng-repeat="obj in home.forecastDetails.list" class="col-xs-6 col-md-4 col-lg-2 detail-div">
+      <p>Date : {{obj.dt_txt}}</p>
+      <p>Temperature : {{obj.main.temp}}</p>
+      <p>Max Temperature : {{obj.main.temp_max}}</p>
+      <p>Min Temperature : {{obj.main.temp_min}}</p>
+      <p>pressure : {{obj.main.pressure}}</p>
+      <p>{{obj.wind.speed}} Wind Speed </p>
+    </div>
+  </div>
 </div>
