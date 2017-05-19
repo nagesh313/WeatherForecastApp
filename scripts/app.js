@@ -15,7 +15,7 @@ angular
     .when('/forecastByLocation', {
         templateUrl: 'views/forecastByLocation.html',
         controller: 'ForecastByLocationController',
-        controllerAs: 'forecastByLocation'
+        controllerAs: 'forecast'
       })
       .otherwise({
         redirectTo: '/'

@@ -1,8 +1,21 @@
-<div class="container-fluid"> 
-<input type='text' ng-model="forecastByLocation.location">
-<input type="button" ng-click="forecastByLocation.getForecastForLocation()" value="Click To Search" ng-disabled="!forecastByLocation.location">
-  <div ng-if="forecastByLocation.forecastData">{{forecastByLocation.forecastData}}</div>
-    <table class="table table-bordered">
-</table>
-<div ng-if='forecastByLocation.errorData'>{{forecastByLocation.errorData.messaage}}</div>
+<div class="container-fluid">
+    <input type='text' ng-model="forecast.location">
+    <input type="button" ng-click="forecast.getForecastForLocation()" value="Click To Search" ng-disabled="!forecast.location">
+    <div ng-if="!forecast.error&& forecast.forecastDetails">
+        <p>City Name : {{forecast.forecastDetails.city.name}}</p>
+        <p>City Coordinates : {{forecast.forecastDetails.city.coord.lat + ' Latitude ' + forecast.forecastDetails.city.coord.lon
+            + ' Longitude '}}
+        </p>
+        <div class='row'>
+            <div ng-repeat="obj in forecast.forecastDetails.list" class="col-xs-6 col-md-4 col-lg-2 detail-div">
+                <p>Date : {{obj.dt_txt}}</p>
+                <p>Temperature : {{obj.main.temp}}</p>
+                <p>Max Temperature : {{obj.main.temp_max}}</p>
+                <p>Min Temperature : {{obj.main.temp_min}}</p>
+                <p>pressure : {{obj.main.pressure}}</p>
+                <p>{{obj.wind.speed}} Wind Speed </p>
+            </div>
+        </div>
+    </div>
+    <div ng-if='forecast.error'>{{forecast.errorData.message}}</div>
 </div>
