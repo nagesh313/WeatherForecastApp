@@ -1,0 +1,8 @@
+<div class="container-fluid"> 
+<input type='text' ng-model="forecastByLocation.location">
+<input type="button" ng-click="forecastByLocation.getForecastForLocation()" value="Click To Search" ng-disabled="!forecastByLocation.location">
+  <div ng-if="forecastByLocation.forecastData">{{forecastByLocation.forecastData}}</div>
+    <table class="table table-bordered">
+</table>
+<div ng-if='forecastByLocation.errorData'>{{forecastByLocation.errorData.messaage}}</div>
+</div>

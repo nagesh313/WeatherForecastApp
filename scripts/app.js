@@ -12,6 +12,11 @@ angular
         controller: 'HomeController',
         controllerAs: 'home'
       })
+    .when('/forecastByLocation', {
+        templateUrl: 'views/forecastByLocation.html',
+        controller: 'ForecastByLocationController',
+        controllerAs: 'forecastByLocation'
+      })
       .otherwise({
         redirectTo: '/'
       });
