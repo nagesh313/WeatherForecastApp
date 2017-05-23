@@ -1,7 +1,7 @@
 angular.module('weatherForecastApp').service('WeatherService', ['$http', '$q', 'LocationService', 'APPCONSTANT','AppParameters', function ($http, $q, LocationService, APPCONSTANT,AppParameters) {
     this.getForecastForDayByCurrentLocation = function (coordinates) {
         var deferred = $q.defer();
-        $http.get('//api.openweathermap.org/data/2.5/forecast?lat=' + coordinates.latitude + '&lon=' + coordinates.longitude+ '&APPID=' + APPCONSTANT.APIKEY + '&cnt='+AppParameters.cnt+'&units=metric')
+        $http.get('http://api.openweathermap.org/data/2.5/forecast?lat=' + coordinates.latitude + '&lon=' + coordinates.longitude+ '&APPID=' + APPCONSTANT.APIKEY + '&cnt='+AppParameters.cnt+'&units=metric')
                .then(function (response) {
                     deferred.resolve(response.data);
                 }, function (responseData) {
@@ -20,7 +20,7 @@ angular.module('weatherForecastApp').service('WeatherService', ['$http', '$q', '
     };
     this.getForecastByLocation = function (locationName) {
         var deferred = $q.defer();
-        $http.get('//api.openweathermap.org/data/2.5/forecast?q=' + locationName + '&APPID=' + APPCONSTANT.APIKEY + '&units=metric')
+        $http.get('http://api.openweathermap.org/data/2.5/forecast?q=' + locationName + '&APPID=' + APPCONSTANT.APIKEY + '&units=metric')
             .then(function (response) {
                 deferred.resolve(response.data);
             }, function (responseData) {
